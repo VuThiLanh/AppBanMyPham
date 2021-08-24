@@ -63,19 +63,6 @@
             app:layout_constraintStart_toStartOf="@id/tv_tensp_detail"
             app:layout_constraintTop_toBottomOf="@id/tv_tensp_detail" />
 
-        <TextView
-            android:background="@drawable/item_boder_bgwhite"
-            android:textColor="@color/black"
-            android:id="@+id/tvTru"
-            android:gravity="center"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:text="-"
-            android:textSize="23sp"
-            app:layout_constraintBottom_toBottomOf="@+id/ratingBar"
-            app:layout_constraintStart_toEndOf="@+id/ratingBar"
-            app:layout_constraintTop_toTopOf="@+id/ratingBar" />
         <EditText
             android:background="@drawable/item_boder_bgwhite"
             android:textColor="@color/black"
@@ -87,20 +74,7 @@
             android:layout_marginLeft="2dp"
             android:textSize="23sp"
             app:layout_constraintBottom_toBottomOf="@+id/ratingBar"
-            app:layout_constraintStart_toEndOf="@id/tvTru"
-            app:layout_constraintTop_toTopOf="@+id/ratingBar" />
-        <TextView
-            android:background="@drawable/item_boder_bgwhite"
-            android:textColor="@color/black"
-            android:id="@+id/tvCong"
-            android:gravity="center"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:text="+"
-            android:textSize="23sp"
-            app:layout_constraintBottom_toBottomOf="@+id/ratingBar"
-            app:layout_constraintStart_toEndOf="@id/tvSoLuongMua"
+            app:layout_constraintStart_toEndOf="@id/ratingBar"
             app:layout_constraintTop_toTopOf="@+id/ratingBar" />
 
         <TextView

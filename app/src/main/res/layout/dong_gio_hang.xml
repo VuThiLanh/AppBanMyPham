@@ -47,12 +47,10 @@
 
             <TextView
                 android:id="@+id/tvTruGioHang"
-                android:layout_width="50dp"
+                android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="2dp"
-                android:background="@drawable/item_boder_bgwhite"
-                android:gravity="center"
-                android:text="-"
+                android:text="Số lượng mua: "
                 android:textColor="@color/black"
                 android:textSize="16sp" />
             <TextView
@@ -66,16 +64,6 @@
                 android:text="0"
                 android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/tvCongGioHang"
-                android:layout_width="50dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/item_boder_bgwhite"
-                android:gravity="center"
-                android:text="+"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
 
         </LinearLayout>
     </LinearLayout>
