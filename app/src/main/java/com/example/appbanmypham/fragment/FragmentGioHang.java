@@ -30,7 +30,6 @@ import java.util.List;
  *
  */
 public class FragmentGioHang extends Fragment {
-    ListView  lvGioHang;
     Button btnThanhToan;
     ImageView imgQuayLaiDetail;
     GioHangAdapter gioHangAdapter;
@@ -97,11 +96,11 @@ public class FragmentGioHang extends Fragment {
         // Inflate the layout for this fragment
         view= inflater.inflate(R.layout.fragment_gio_hang, container, false);
         AnhXa(view);
-//        initRecyclerViewGiHang(view);
+
         RecyclerView recycleviewTatCa = view.findViewById(R.id.rcGioHang);
         LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity());
         recycleviewTatCa.setLayoutManager(layoutManager);
-        ArrayList<GioHang> gioHangs=new ArrayList<>();
+
 
 
         GioHangAdapter adapter = new GioHangAdapter(Detail.listgiohang,getActivity());
@@ -111,6 +110,18 @@ public class FragmentGioHang extends Fragment {
             d=d+Detail.listgiohang.get(i).getSoLuongMua()*Detail.listgiohang.get(i).getGiaSP();
         }
         tv_thanhtien.setText(d+"");
+
+        imgQuayLaiDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = HomeFragment.newInstance();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.hide(getActivity().getSupportFragmentManager().findFragmentById(R.id.content_frame));
+                transaction.add(R.id.content_frame,fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
         return  view;
     }
     private  void  AnhXa(View view){

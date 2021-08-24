@@ -58,63 +58,7 @@ public class GioHangAdapter extends RecyclerView.Adapter<GioHangAdapter.GioHangV
             tv_tenspgiohang=itemView.findViewById(R.id.tv_tengiohang);
             tv_giatiengiohang=itemView.findViewById(R.id.tv_giatiengiohang);
             tv_soluonggiohang=itemView.findViewById(R.id.tvSoLuongGioHang);
-            tv_conggiohang=itemView.findViewById(R.id.tvCongGioHang);
-            tv_trugiohang=itemView.findViewById(R.id.tvTruGioHang);
             img_anhgiohang=itemView.findViewById(R.id.imgangiohang);
         }
     }
-//public class GioHangAdapter extends BaseAdapter {
-//    Context context;
-//    ArrayList<GioHang> arraygihang;
-//
-//    public GioHangAdapter(Context context, ArrayList<GioHang> arraygihang) {
-//        this.context = context;
-//        this.arraygihang = arraygihang;
-//    }
-//
-//    @Override
-//    public int getCount() {
-//        return arraygihang.size();
-//    }
-//
-//    @Override
-//    public Object getItem(int position) {
-//        return arraygihang.get(position);
-//    }
-//
-//    @Override
-//    public long getItemId(int position) {
-//        return position;
-//    }
-//    public  class ViewHolder{
-//        public TextView tv_tenspgiohang,tv_soluonggiohang,tv_conggiohang,tv_trugiohang,tv_giatiengiohang;
-//        ImageView img_anhgiohang;
-//    }
-//    @Override
-//    public View getView(int i, View view, ViewGroup viewGroup) {
-//        ViewHolder viewHolder=null;
-//        if(view==null){
-//            viewHolder=new ViewHolder();
-//            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//            view = inflater.inflate(R.layout.dong_gio_hang,null);
-//            viewHolder.tv_tenspgiohang=view.findViewById(R.id.tv_tengiohang);
-//            viewHolder.tv_giatiengiohang=view.findViewById(R.id.tv_giatiengiohang);
-//            viewHolder.tv_soluonggiohang=view.findViewById(R.id.tvSoLuongGioHang);
-//            viewHolder.tv_conggiohang=view.findViewById(R.id.tvCongGioHang);
-//            viewHolder.tv_trugiohang=view.findViewById(R.id.tvTruGioHang);
-//            viewHolder.img_anhgiohang=view.findViewById(R.id.imgangiohang);
-//            view.setTag(viewHolder);
-//
-//        }
-//        else {
-//            viewHolder= (ViewHolder) view.getTag();
-//        }
-//        GioHang gioHang= (GioHang) getItem(i);
-//        viewHolder.tv_tenspgiohang.setText(gioHang.getTenSP());
-//        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-//        viewHolder.tv_giatiengiohang.setText(decimalFormat.format(gioHang.getGiaSP()+""));
-//        Glide.with(context).load(gioHang.getHinhAnh()).into(viewHolder.img_anhgiohang);
-//        viewHolder.tv_soluonggiohang.setText(gioHang.getSoLuongMua()+"");
-//        return view;
-//    }
 }
