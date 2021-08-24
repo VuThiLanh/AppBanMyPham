@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/hongdam"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:gravity="bottom"
+    android:layout_height="180dp">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_avatar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/avatardefault"/>
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:text="ThiLanh"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:text="vuthilanh0163484279@gmail.com"
+        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

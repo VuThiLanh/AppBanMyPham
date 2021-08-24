@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "157688584262",
+    "project_id": "appbanmypham-56855",
+    "storage_bucket": "appbanmypham-56855.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:157688584262:android:53ac731e0140ae0f9fd247",
+        "android_client_info": {
+          "package_name": "com.example.appbanmypham"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "157688584262-bvbploh8l1lg1pj9o9si6ro1d41of1jh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVLxO1LZbFVkRWA1tyxPofyvt2r3-U4tw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "157688584262-bvbploh8l1lg1pj9o9si6ro1d41of1jh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

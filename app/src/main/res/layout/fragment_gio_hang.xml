@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.FragmentGioHang">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<!--        <TextView-->
+<!--            android:id="@+id/tvThongbao"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Không có sản phẩm"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="23dp"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:layout_height="match_parent"/>-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:background="@color/hongnen"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+                <ImageView
+                    android:id="@+id/imageViewQuayLai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@drawable/ic_arrow_back_black_24dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Giỏ hàng"
+                    android:layout_gravity="center"
+                    android:textSize="23dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="@color/hongdam"
+                    />
+            </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcGioHang"
+                android:layout_width="match_parent"
+                android:layout_weight="10"
+                android:layout_height="0dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+                <TextView
+                    android:layout_width="0dp"
+                    android:text="Tổng tiền:"
+                    android:textSize="23dp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+                <TextView
+                    android:textSize="23dp"
+                    android:text="0"
+                    android:id="@+id/tvTongTien"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:textColor="@color/black"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"/>
+                <TextView
+                    android:textSize="23dp"
+                    android:text="VNĐ"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+            <Button
+                android:layout_alignParentBottom="true"
+                android:id="@+id/btnThanhToan"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/add_to_cart_bg"
+                android:text="Thanh toán"
+                android:layout_weight="0.7"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>
