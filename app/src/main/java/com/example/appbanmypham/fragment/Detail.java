@@ -121,7 +121,21 @@ public class Detail extends Fragment {
             @Override
             public void onClick(View v) {
                 String soLuong=slmua.getText().toString().trim();
-                if(Integer.parseInt(soLuong)<=0){
+                if(soLuong.isEmpty()){
+                    AlertDialog ad = new AlertDialog.Builder(getActivity()).create();
+                    ad.setTitle("Thông báo");
+                    String msg = String.format("Vui lòng nhập số lượng mua!");
+                    ad.setMessage(msg);
+                    ad.setIcon(android.R.drawable.ic_dialog_info);
+                    ad.setButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which)
+                        {
+
+                        }
+                    });
+                    ad.show();
+                }
+                else if(Integer.parseInt(soLuong)<=0){
                     AlertDialog ad = new AlertDialog.Builder(getActivity()).create();
                     ad.setTitle("Thông báo");
                     String msg = String.format("Số lượng mua lớn hơn 0!");
