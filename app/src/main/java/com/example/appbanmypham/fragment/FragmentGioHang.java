@@ -143,7 +143,7 @@ public class FragmentGioHang extends Fragment implements GioHangAdapter.ItemClic
         String msg = String.format("Bạn chắc chắn xóa sản phẩm !");
         ad.setMessage(msg);
         ad.setIcon(android.R.drawable.ic_dialog_info);
-        ad.setButton("OK", new DialogInterface.OnClickListener() {
+        ad.setButton2("OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which)
             {
                 for(int i=0;i<Detail.listgiohang.size();i++) {
@@ -164,6 +164,13 @@ public class FragmentGioHang extends Fragment implements GioHangAdapter.ItemClic
                     d=d+Detail.listgiohang.get(i).getSoLuongMua()*Detail.listgiohang.get(i).getGiaSP();
                 }
                 tv_thanhtien.setText(d+"");
+            }
+
+        });
+        ad.setButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
             }
         });
         ad.show();
