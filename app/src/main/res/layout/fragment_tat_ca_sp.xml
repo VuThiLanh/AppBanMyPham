@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".fragment.FragmentTatCaSp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"
@@ -9,7 +12,7 @@
         <TextView
             android:layout_marginBottom="4dp"
             android:background="@color/hongnen"
-            android:text="Danh sách sản phẩm bán chạy"
+            android:text="Danh sách tất cả sản phẩm "
             android:textStyle="bold"
             android:layout_gravity="center"
             android:gravity="center"
@@ -18,11 +21,12 @@
             android:layout_height="40dp"
             android:layout_width="match_parent" />
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcTatCaSP"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:id="@+id/rcSPBanChay"
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
     </LinearLayout>
 
-</LinearLayout>
+
+</FrameLayout>

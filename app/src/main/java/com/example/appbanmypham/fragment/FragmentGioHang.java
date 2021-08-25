@@ -163,14 +163,13 @@ public class FragmentGioHang extends Fragment implements GioHangAdapter.ItemClic
                         Detail.listgiohang.remove(Detail.listgiohang.get(i));
                     }
                 }
+
                 RecyclerView recycleviewTatCa = view.findViewById(R.id.rcGioHang);
                 LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity());
                 recycleviewTatCa.setLayoutManager(layoutManager);
-
-
-
                 GioHangAdapter adapter = new GioHangAdapter(Detail.listgiohang,FragmentGioHang.this,getActivity());
                 recycleviewTatCa.setAdapter(adapter);
+
                 int d=0;
                 for(int i=0;i<Detail.listgiohang.size();i++){
                     d=d+Detail.listgiohang.get(i).getSoLuongMua()*Detail.listgiohang.get(i).getGiaSP();

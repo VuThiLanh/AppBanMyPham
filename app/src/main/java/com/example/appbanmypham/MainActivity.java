@@ -27,6 +27,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.appbanmypham.Activity.DangNhap;
 import com.example.appbanmypham.fragment.FragmentChangePass;
+import com.example.appbanmypham.fragment.FragmentGioHang;
+import com.example.appbanmypham.fragment.FragmentTatCaSp;
 import com.example.appbanmypham.fragment.HomeFragment;
 import com.example.appbanmypham.fragment.YeuThichFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -41,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         private static  final  int Fragment_home = 0;
     private static  final  int Fragment_yeuthich = 1;
     private static  final  int Fragment_changepass = 2;
+    private static  final  int Fragment_tatcasp = 3;
+    private static  final  int Fragment_giohang = 4;
     private int mCurrentFragmet = Fragment_home;
     private ImageView imgAvatar;
     private TextView tv_name,tv_email;
@@ -120,6 +124,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if(mCurrentFragmet!=Fragment_changepass){
                 replaceFragment(mfragmentChangePass);
                 mCurrentFragmet = Fragment_changepass;
+            }
+        }
+        else if(id==R.id.nav_tatcasp){
+            if(mCurrentFragmet!=Fragment_tatcasp){
+                replaceFragment(new FragmentTatCaSp());
+                mCurrentFragmet = Fragment_tatcasp;
+            }
+        }
+        else if(id==R.id.navgiohang){
+            if(mCurrentFragmet!=Fragment_giohang){
+                replaceFragment(new FragmentGioHang());
+                mCurrentFragmet = Fragment_giohang;
             }
         }
         mdrawerLayout.closeDrawer(GravityCompat.START);
