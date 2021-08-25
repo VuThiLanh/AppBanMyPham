@@ -1,5 +1,8 @@
 package com.example.appbanmypham.fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -14,8 +17,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.appbanmypham.Activity.DangNhap;
 import com.example.appbanmypham.Adapter.GioHangAdapter;
 import com.example.appbanmypham.Adapter.SanPhamAdapter;
+import com.example.appbanmypham.MainActivity;
 import com.example.appbanmypham.R;
 import com.example.appbanmypham.model.GioHang;
 
@@ -29,7 +34,7 @@ import java.util.List;
  * create an instance of this fragment.
  *
  */
-public class FragmentGioHang extends Fragment {
+public class FragmentGioHang extends Fragment implements GioHangAdapter.ItemClickListener{
     Button btnThanhToan;
     ImageView imgQuayLaiDetail;
     GioHangAdapter gioHangAdapter;
@@ -103,7 +108,7 @@ public class FragmentGioHang extends Fragment {
 
 
 
-        GioHangAdapter adapter = new GioHangAdapter(Detail.listgiohang,getActivity());
+        GioHangAdapter adapter = new GioHangAdapter(Detail.listgiohang,this,getActivity());
         recycleviewTatCa.setAdapter(adapter);
         int d=0;
         for(int i=0;i<Detail.listgiohang.size();i++){
@@ -129,6 +134,39 @@ public class FragmentGioHang extends Fragment {
         tv_thanhtien=view.findViewById(R.id.tvTongTien);
         imgQuayLaiDetail=view.findViewById(R.id.imageViewQuayLai);
 
+    }
+
+    @Override
+    public void onItemClick(GioHang gioHang) {
+        AlertDialog ad = new AlertDialog.Builder(getActivity()).create();
+        ad.setTitle("Thông báo");
+        String msg = String.format("Bạn chắc chắn xóa sản phẩm !");
+        ad.setMessage(msg);
+        ad.setIcon(android.R.drawable.ic_dialog_info);
+        ad.setButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which)
+            {
+                for(int i=0;i<Detail.listgiohang.size();i++) {
+                    if (Detail.listgiohang.get(i).getTenSP().contains(gioHang.getTenSP())) {
+                        Detail.listgiohang.remove(Detail.listgiohang.get(i));
+                    }
+                }
+                RecyclerView recycleviewTatCa = view.findViewById(R.id.rcGioHang);
+                LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity());
+                recycleviewTatCa.setLayoutManager(layoutManager);
+
+
+
+                GioHangAdapter adapter = new GioHangAdapter(Detail.listgiohang,FragmentGioHang.this,getActivity());
+                recycleviewTatCa.setAdapter(adapter);
+                int d=0;
+                for(int i=0;i<Detail.listgiohang.size();i++){
+                    d=d+Detail.listgiohang.get(i).getSoLuongMua()*Detail.listgiohang.get(i).getGiaSP();
+                }
+                tv_thanhtien.setText(d+"");
+            }
+        });
+        ad.show();
     }
 //    private void EvenUtil() {
 //        int tongtien = 0;
