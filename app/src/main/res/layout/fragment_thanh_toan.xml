@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.FragmentGioHang">
+    tools:context=".fragment.ThanhToanFragment">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -27,7 +28,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Giỏ hàng"
+                    android:text="Thanh toán"
                     android:layout_gravity="center"
                     android:textSize="23dp"
                     android:textStyle="bold"
@@ -35,8 +36,77 @@
                     android:textColor="@color/hongdam"
                     />
             </LinearLayout>
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Người nhận:"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:layout_width="0dp"
+                    android:gravity="center|left"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:gravity="center|left"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Số điện thoại:"
+                    android:layout_width="0dp"
+                    android:layout_gravity="center"
+                    android:gravity="center|left"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_gravity="center"
+                    android:gravity="center|left"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Địa chỉ:"
+                    android:layout_width="0dp"
+                    android:gravity="center|left"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+                <EditText
+                    android:layout_width="0dp"
+                    android:gravity="center|left"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <TextView
+                android:text="Danh sách sản phẩm:"
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:gravity="center|left"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:layout_height="wrap_content" />
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcGioHang"
+                android:id="@+id/rcHangThanhToan"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_width="match_parent"
                 android:layout_weight="10"
                 android:layout_height="0dp"/>
@@ -56,7 +126,7 @@
                 <TextView
                     android:textSize="23dp"
                     android:text="0"
-                    android:id="@+id/tvTongTien"
+                    android:id="@+id/tvTongTienThanhToan"
                     android:gravity="center"
                     android:layout_width="0dp"
                     android:textColor="@color/black"
@@ -74,14 +144,14 @@
             </LinearLayout>
             <Button
                 android:layout_alignParentBottom="true"
-                android:id="@+id/btnThanhToan"
+                android:id="@+id/btnDatHang"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/add_to_cart_bg"
-                android:text="Thanh toán"
+                android:text="Đặt hàng"
                 android:layout_weight="0.7"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />

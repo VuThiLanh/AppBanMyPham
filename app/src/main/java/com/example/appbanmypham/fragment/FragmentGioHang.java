@@ -44,6 +44,7 @@ public class FragmentGioHang extends Fragment implements GioHangAdapter.ItemClic
 
 
 
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -127,6 +128,17 @@ public class FragmentGioHang extends Fragment implements GioHangAdapter.ItemClic
                 transaction.commit();
             }
         });
+        btnThanhToan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = ThanhToanFragment.getInstance();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.hide(getActivity().getSupportFragmentManager().findFragmentById(R.id.content_frame));
+                transaction.add(R.id.content_frame,fragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
         return  view;
     }
     private  void  AnhXa(View view){
@@ -175,28 +187,7 @@ public class FragmentGioHang extends Fragment implements GioHangAdapter.ItemClic
         });
         ad.show();
     }
-//    private void EvenUtil() {
-//        int tongtien = 0;
-//        for(int i=0;i<HomeFragment.manggiohang.size();i++){
-//            tongtien+=HomeFragment.manggiohang.get(i).getGiaSP();
-//        }
-//        DecimalFormat decimalFormat = new DecimalFormat("###,###,###");
-//        tv_thanhtien.setText(decimalFormat.format(tongtien)+"");
-//    }
-//
-//    private void checkData() {
-//        if(HomeFragment.manggiohang.size()<=0){
-//            gioHangAdapter.notifyDataSetChanged();
-//            tvThongBao.setVisibility(View.VISIBLE);
-//            lvGioHang.setVisibility(View.INVISIBLE);
-//
-//        }else {
-//            gioHangAdapter.notifyDataSetChanged();
-//            tvThongBao.setVisibility(View.INVISIBLE);
-//            lvGioHang.setVisibility(View.VISIBLE);
-//        }
-//
-//    }
+
 
 
 }
