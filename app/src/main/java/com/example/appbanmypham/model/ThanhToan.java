@@ -5,13 +5,20 @@ import java.util.List;
 
 public class ThanhToan {
     String ten,sdt,diachi;
-    List<SanPham> sanPhamList = new ArrayList<>();
+    List<GioHang> gioHangs = new ArrayList<>();
+    int tongtiem;
 
-    public ThanhToan(String ten, String sdt, String diachi, List<SanPham> sanPhamList) {
+    public ThanhToan(String ten, String sdt, String diachi, List<GioHang> gioHangs, int tongtiem) {
         this.ten = ten;
         this.sdt = sdt;
         this.diachi = diachi;
-        this.sanPhamList = sanPhamList;
+        this.gioHangs = gioHangs;
+        this.tongtiem = tongtiem;
+    }
+
+    @Override
+    public String toString() {
+        return gioHangs.toString();
     }
 
     public String getTen() {
@@ -38,11 +45,19 @@ public class ThanhToan {
         this.diachi = diachi;
     }
 
-    public List<SanPham> getSanPhamList() {
-        return sanPhamList;
+    public List<GioHang> getGioHangs() {
+        return gioHangs;
     }
 
-    public void setSanPhamList(List<SanPham> sanPhamList) {
-        this.sanPhamList = sanPhamList;
+    public void setGioHangs(List<GioHang> gioHangs) {
+        this.gioHangs = gioHangs;
+    }
+
+    public int getTongtiem() {
+        return tongtiem;
+    }
+
+    public void setTongtiem(int tongtiem) {
+        this.tongtiem = tongtiem;
     }
 }

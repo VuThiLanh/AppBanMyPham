@@ -17,7 +17,7 @@
                 android:orientation="horizontal"
                 android:background="@color/hongnen"
                 android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_weight="6">
                 <ImageView
                     android:id="@+id/imageViewQuayLaiGiooHang"
                     android:layout_width="wrap_content"
@@ -32,6 +32,7 @@
                     android:layout_gravity="center"
                     android:textSize="23dp"
                     android:textStyle="bold"
+                    android:id="@+id/thongbao"
                     android:gravity="center"
                     android:textColor="@color/hongdam"
                     />
@@ -50,6 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
                 <EditText
+                    android:id="@+id/edNguoiNhan"
                     android:textColor="@color/black"
                     android:layout_width="0dp"
                     android:gravity="center|left"
@@ -72,6 +74,7 @@
                     android:layout_weight="1"/>
                 <EditText
                     android:layout_width="0dp"
+                    android:id="@+id/edSDTNguoiNhan"
                     android:layout_gravity="center"
                     android:gravity="center|left"
                     android:textColor="@color/black"
@@ -94,6 +97,7 @@
                 <EditText
                     android:layout_width="0dp"
                     android:gravity="center|left"
+                    android:id="@+id/edDiaChiNguoiNhan"
                     android:layout_weight="2"
                     android:textColor="@color/black"
                     android:layout_height="wrap_content"/>

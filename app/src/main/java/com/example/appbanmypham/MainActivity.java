@@ -26,6 +26,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.appbanmypham.Activity.DangNhap;
+import com.example.appbanmypham.fragment.DonHangDaDatFragment;
 import com.example.appbanmypham.fragment.FragmentChangePass;
 import com.example.appbanmypham.fragment.FragmentGioHang;
 import com.example.appbanmypham.fragment.FragmentTatCaSp;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static  final  int Fragment_changepass = 2;
     private static  final  int Fragment_tatcasp = 3;
     private static  final  int Fragment_giohang = 4;
+    private static  final  int Fragment_donhang = 5;
     private int mCurrentFragmet = Fragment_home;
     private ImageView imgAvatar;
     private TextView tv_name,tv_email;
@@ -136,6 +138,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if(mCurrentFragmet!=Fragment_giohang){
                 replaceFragment(new FragmentGioHang());
                 mCurrentFragmet = Fragment_giohang;
+            }
+        }
+        else if(id==R.id.navdonhang){
+            if(mCurrentFragmet!=Fragment_donhang){
+                replaceFragment(new DonHangDaDatFragment());
+                mCurrentFragmet = Fragment_donhang;
             }
         }
         mdrawerLayout.closeDrawer(GravityCompat.START);

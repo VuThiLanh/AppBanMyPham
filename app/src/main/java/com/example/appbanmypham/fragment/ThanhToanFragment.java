@@ -12,12 +12,24 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.appbanmypham.Adapter.GioHangAdapter;
 import com.example.appbanmypham.R;
+import com.example.appbanmypham.database.APIService;
 import com.example.appbanmypham.model.GioHang;
+import com.example.appbanmypham.model.ThanhToan;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,9 +43,13 @@ public class ThanhToanFragment extends Fragment implements GioHangAdapter.ItemCl
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     View view;
-    TextView tv_thanhtoan;
+    TextView tv_thanhtoan,tv_thongbao;
     RecyclerView rcHangThanhToan;
     ImageView imgQuayLia;
+    EditText edTenMguoiNhan,edSDTNguoiNhan,edDiaChiNguoiNhan;
+    Button btnDatHang;
+    public static List<ThanhToan> mangThanhToan = new ArrayList<>();
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -104,7 +120,17 @@ public class ThanhToanFragment extends Fragment implements GioHangAdapter.ItemCl
                 transaction.commit();
             }
         });
+
+        btnDatHang = view.findViewById(R.id.btnDatHang);
+        btnDatHang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendPosts(view);
+            }
+        });
         return view;
+
+
     }
 
     private  void AnhXa(View view){
@@ -114,6 +140,37 @@ public class ThanhToanFragment extends Fragment implements GioHangAdapter.ItemCl
     }
     @Override
     public void onItemClick(GioHang gioHang) {
+    }
+    private  void sendPosts(View view){
+        edTenMguoiNhan= view.findViewById(R.id.edNguoiNhan);
+        edDiaChiNguoiNhan=view.findViewById(R.id.edDiaChiNguoiNhan);
+        edSDTNguoiNhan=view.findViewById(R.id.edSDTNguoiNhan);
+        rcHangThanhToan=view.findViewById(R.id.rcHangThanhToan);
+        tv_thanhtoan=view.findViewById(R.id.tvTongTienThanhToan);
+        int d=0;
+        for(int i=0;i<Detail.listgiohang.size();i++){
+            d=d+Detail.listgiohang.get(i).getSoLuongMua()*Detail.listgiohang.get(i).getGiaSP();
+        }
+
+        ThanhToan thanhToan = new ThanhToan(edTenMguoiNhan.getText().toString(),edSDTNguoiNhan.getText().toString(),edDiaChiNguoiNhan.getText().toString(),Detail.listgiohang,d);
+
+        APIService.apiService.sendPosts(thanhToan).enqueue(new Callback<ThanhToan>() {
+            @Override
+            public void onResponse(Call<ThanhToan> call, Response<ThanhToan> response) {
+                Toast.makeText(getActivity(),"Đặt hàng thành công!",Toast.LENGTH_SHORT).show();
+                tv_thongbao=view.findViewById(R.id.thongbao);
+                ThanhToan thanhToan1 = response.body();
+                mangThanhToan.add(thanhToan1);
+                if(thanhToan1!=null){
+                    tv_thongbao.setText(mangThanhToan.toString());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ThanhToan> call, Throwable t) {
+                Toast.makeText(getActivity(),"Đặt hàng thất bại",Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

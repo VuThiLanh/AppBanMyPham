@@ -44,4 +44,9 @@ public class GioHang {
     public void setSoLuongMua(int soLuongMua) {
         this.soLuongMua = soLuongMua;
     }
+
+    @Override
+    public String toString() {
+        return tenSP;
+    }
 }
