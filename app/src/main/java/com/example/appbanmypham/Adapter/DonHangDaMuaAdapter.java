@@ -38,7 +38,7 @@ public class DonHangDaMuaAdapter extends RecyclerView.Adapter<DonHangDaMuaAdapte
         holder.tv_nguoinhan.setText(thanhToanList.get(position).getTen());
         holder.tv_sdtnguoinhan.setText(thanhToanList.get(position).getSdt());
         holder.tv_diachinguoinhan.setText(thanhToanList.get(position).getDiachi());
-        holder.tv_sanpham.setText(thanhToanList.get(position).toString());
+        holder.tv_sanpham.setText(thanhToanList.get(position).toString().replace("[","").replace("]",""));
         holder.tv_tongtien.setText(thanhToanList.get(position).getTongtiem()+"");
 
     }
