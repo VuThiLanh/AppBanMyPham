@@ -10,9 +10,9 @@
     android:background="@color/hongnen"
     tools:context=".Activity.Splash">
 <ImageView
-    android:src="@drawable/logo"
-    android:layout_width="150dp"
-    android:layout_height="150dp"/>
+    android:src="@drawable/logochinh"
+    android:layout_width="250dp"
+    android:layout_height="250dp"/>
     <TextView
         android:layout_marginTop="20dp"
         android:text="Welcome to T'Lanh Cosmetic !"

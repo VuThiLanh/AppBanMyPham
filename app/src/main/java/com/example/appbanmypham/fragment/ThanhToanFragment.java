@@ -2,6 +2,7 @@ package com.example.appbanmypham.fragment;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -18,7 +19,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.appbanmypham.Activity.DangNhap;
 import com.example.appbanmypham.Adapter.GioHangAdapter;
+import com.example.appbanmypham.MainActivity;
 import com.example.appbanmypham.R;
 import com.example.appbanmypham.database.APIService;
 import com.example.appbanmypham.model.GioHang;
@@ -147,6 +150,7 @@ public class ThanhToanFragment extends Fragment implements GioHangAdapter.ItemCl
         edSDTNguoiNhan=view.findViewById(R.id.edSDTNguoiNhan);
         rcHangThanhToan=view.findViewById(R.id.rcHangThanhToan);
         tv_thanhtoan=view.findViewById(R.id.tvTongTienThanhToan);
+
         int d=0;
         for(int i=0;i<Detail.listgiohang.size();i++){
             d=d+Detail.listgiohang.get(i).getSoLuongMua()*Detail.listgiohang.get(i).getGiaSP();
@@ -157,11 +161,26 @@ public class ThanhToanFragment extends Fragment implements GioHangAdapter.ItemCl
         APIService.apiService.sendPosts(thanhToan).enqueue(new Callback<ThanhToan>() {
             @Override
             public void onResponse(Call<ThanhToan> call, Response<ThanhToan> response) {
-                Toast.makeText(getActivity(),"Đặt hàng thành công!",Toast.LENGTH_SHORT).show();
-                tv_thongbao=view.findViewById(R.id.thongbao);
                 ThanhToan thanhToan1 = response.body();
                 mangThanhToan.add(thanhToan1);
-                
+                AlertDialog ad = new AlertDialog.Builder(getActivity()).create();
+                ad.setTitle("Thông báo");
+                String msg = String.format("Đặt hàng thành công !");
+                ad.setMessage(msg);
+                ad.setIcon(android.R.drawable.ic_dialog_info);
+                ad.setButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which)
+                    {
+                        Detail.listgiohang.removeAll(Detail.listgiohang);
+                        Fragment fragment = HomeFragment.newInstance();
+                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        transaction.hide(getActivity().getSupportFragmentManager().findFragmentById(R.id.content_frame));
+                        transaction.add(R.id.content_frame,fragment);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+                    }
+                });
+                ad.show();
             }
 
             @Override
