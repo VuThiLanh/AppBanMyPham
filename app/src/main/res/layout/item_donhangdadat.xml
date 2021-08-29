@@ -98,15 +98,17 @@
 
     <TextView
         android:id="@+id/tv_sanphammua"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="SanPham"
+        android:layout_marginRight="16dp"
         android:textColor="@color/black"
-        android:textSize="16dp"
-        app:layout_constraintStart_toStartOf="@+id/tv_diachinguoinhan"
+        android:lineSpacingExtra="2dp"
+        android:text="Nasi Padang is a Padang steamed rice served with various choices of pre-cooked dishes originated from West Sumatra, "
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_diachinguoinhan"
         app:layout_constraintTop_toBottomOf="@id/tv_diachinguoinhan" />
-
     <TextView
         android:id="@+id/xemtongtiennguoinhan"
         android:layout_width="wrap_content"
@@ -119,18 +121,19 @@
         android:textSize="16dp"
         app:layout_constraintStart_toStartOf="@+id/img_list_anh"
         app:layout_constraintTop_toBottomOf="@id/xemdiachi" />
+
     <TextView
-        android:id="@+id/xemtong"
+        android:id="@+id/tv_xemtong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="100dp"
-        android:layout_marginTop="12dp"
-        android:text="Tông tiền:"
-        android:textColor="@color/black"
+        android:text="Tổng tiền:"
         android:textSize="16dp"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="@+id/img_list_anh"
-        app:layout_constraintTop_toBottomOf="@id/xemtongtiennguoinhan" />
+        app:layout_constraintTop_toBottomOf="@id/tv_sanphammua" />
+
     <TextView
         android:id="@+id/tv_tongtiennguoinhan"
         android:layout_width="wrap_content"

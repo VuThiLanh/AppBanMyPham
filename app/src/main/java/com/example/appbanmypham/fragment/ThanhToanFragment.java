@@ -161,9 +161,7 @@ public class ThanhToanFragment extends Fragment implements GioHangAdapter.ItemCl
                 tv_thongbao=view.findViewById(R.id.thongbao);
                 ThanhToan thanhToan1 = response.body();
                 mangThanhToan.add(thanhToan1);
-                if(thanhToan1!=null){
-                    tv_thongbao.setText(mangThanhToan.toString());
-                }
+                
             }
 
             @Override
