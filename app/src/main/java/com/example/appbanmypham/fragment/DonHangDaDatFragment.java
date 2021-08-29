@@ -77,7 +77,6 @@ public class DonHangDaDatFragment extends Fragment {
        DonHangDaMuaAdapter adapter = new DonHangDaMuaAdapter(ThanhToanFragment.mangThanhToan,getActivity());
        rcdonhang.setAdapter(adapter);
 
-
        return  view;
     }
 }
