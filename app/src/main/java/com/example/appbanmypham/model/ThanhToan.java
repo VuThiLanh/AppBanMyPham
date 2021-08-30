@@ -6,9 +6,9 @@ import java.util.List;
 public class ThanhToan {
     String ten,sdt,diachi;
     List<GioHang> gioHangs = new ArrayList<>();
-    int tongtiem;
+    long tongtiem;
 
-    public ThanhToan(String ten, String sdt, String diachi, List<GioHang> gioHangs, int tongtiem) {
+    public ThanhToan(String ten, String sdt, String diachi, List<GioHang> gioHangs, long tongtiem) {
         this.ten = ten;
         this.sdt = sdt;
         this.diachi = diachi;
@@ -53,11 +53,11 @@ public class ThanhToan {
         this.gioHangs = gioHangs;
     }
 
-    public int getTongtiem() {
+    public long getTongtiem() {
         return tongtiem;
     }
 
-    public void setTongtiem(int tongtiem) {
+    public void setTongtiem(long tongtiem) {
         this.tongtiem = tongtiem;
     }
 }

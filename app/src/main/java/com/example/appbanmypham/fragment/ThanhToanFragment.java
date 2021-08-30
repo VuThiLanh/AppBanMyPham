@@ -26,6 +26,10 @@ import com.example.appbanmypham.R;
 import com.example.appbanmypham.database.APIService;
 import com.example.appbanmypham.model.GioHang;
 import com.example.appbanmypham.model.ThanhToan;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +56,9 @@ public class ThanhToanFragment extends Fragment implements GioHangAdapter.ItemCl
     EditText edTenMguoiNhan,edSDTNguoiNhan,edDiaChiNguoiNhan;
     Button btnDatHang;
     public static List<ThanhToan> mangThanhToan = new ArrayList<>();
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    long d=0;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -105,8 +112,8 @@ public class ThanhToanFragment extends Fragment implements GioHangAdapter.ItemCl
         rcHangThanhToan.setLayoutManager(layoutManager);
         GioHangAdapter adapter = new GioHangAdapter(Detail.listgiohang, this,getActivity());
         rcHangThanhToan.setAdapter(adapter);
+//
 
-        int d=0;
         for(int i=0;i<Detail.listgiohang.size();i++){
             d=d+Detail.listgiohang.get(i).getSoLuongMua()*Detail.listgiohang.get(i).getGiaSP();
         }
@@ -123,12 +130,53 @@ public class ThanhToanFragment extends Fragment implements GioHangAdapter.ItemCl
                 transaction.commit();
             }
         });
+        edTenMguoiNhan= view.findViewById(R.id.edNguoiNhan);
+        edDiaChiNguoiNhan=view.findViewById(R.id.edDiaChiNguoiNhan);
+        edSDTNguoiNhan=view.findViewById(R.id.edSDTNguoiNhan);
+        rcHangThanhToan=view.findViewById(R.id.rcHangThanhToan);
+        tv_thanhtoan=view.findViewById(R.id.tvTongTienThanhToan);
+
+        firebaseDatabase=FirebaseDatabase.getInstance();
+        databaseReference=firebaseDatabase.getReference();
 
         btnDatHang = view.findViewById(R.id.btnDatHang);
+
         btnDatHang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendPosts(view);
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                EditText ed= view.findViewById(R.id.ed_email_update);
+                String id = user.getUid()+"";
+
+                ThanhToan thanhToan = new ThanhToan(edTenMguoiNhan.getText().toString(),edSDTNguoiNhan.getText().toString(),edDiaChiNguoiNhan.getText().toString(),Detail.listgiohang,d);
+                mangThanhToan.add(thanhToan);
+                for (int j=0;j<mangThanhToan.size();j++){
+                    String donhang="donhang"+j+"";
+                    databaseReference.child("user").child(id).child("email").setValue(user.getEmail());
+                    databaseReference.child("user").child(id).child("donhang").child(donhang).child("nguoinhan").setValue(mangThanhToan.get(j).getTen()+"");
+                    databaseReference.child("user").child(id).child("donhang").child(donhang).child("sdt").setValue(mangThanhToan.get(j).getSdt()+"");
+                    databaseReference.child("user").child(id).child("donhang").child(donhang).child("diachi").setValue(mangThanhToan.get(j).getDiachi()+"");
+                    databaseReference.child("user").child(id).child("donhang").child(donhang).child("tongtien").setValue(mangThanhToan.get(j).getTongtiem()+"");
+                    databaseReference.child("user").child(id).child("donhang").child(donhang).child("sanpham").setValue(mangThanhToan.get(j).getGioHangs());
+                    AlertDialog ad = new AlertDialog.Builder(getActivity()).create();
+                    ad.setTitle("Thông báo");
+                    String msg = String.format("Đặt hàng thành công !");
+                    ad.setMessage(msg);
+                    ad.setIcon(android.R.drawable.ic_dialog_info);
+                    ad.setButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which)
+                        {
+                            Detail.listgiohang.removeAll(Detail.listgiohang);
+                            Fragment fragment = HomeFragment.newInstance();
+                            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                            transaction.hide(getActivity().getSupportFragmentManager().findFragmentById(R.id.content_frame));
+                            transaction.add(R.id.content_frame,fragment);
+                            transaction.addToBackStack(null);
+                            transaction.commit();
+                        }
+                    });
+                    ad.show();
+                }
             }
         });
         return view;
@@ -151,7 +199,7 @@ public class ThanhToanFragment extends Fragment implements GioHangAdapter.ItemCl
         rcHangThanhToan=view.findViewById(R.id.rcHangThanhToan);
         tv_thanhtoan=view.findViewById(R.id.tvTongTienThanhToan);
 
-        int d=0;
+        long d=0;
         for(int i=0;i<Detail.listgiohang.size();i++){
             d=d+Detail.listgiohang.get(i).getSoLuongMua()*Detail.listgiohang.get(i).getGiaSP();
         }

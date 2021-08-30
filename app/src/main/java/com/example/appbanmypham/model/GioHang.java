@@ -2,11 +2,11 @@ package com.example.appbanmypham.model;
 
 public class GioHang {
     String tenSP;
-    int giaSP;
+    long giaSP;
     String hinhAnh;
-    int soLuongMua;
+    long soLuongMua;
 
-    public GioHang(String tenSP, int giaSP, String hinhAnh, int soLuongMua) {
+    public GioHang(String tenSP, long giaSP, String hinhAnh, long soLuongMua) {
         this.tenSP = tenSP;
         this.giaSP = giaSP;
         this.hinhAnh = hinhAnh;
@@ -21,11 +21,11 @@ public class GioHang {
         this.tenSP = tenSP;
     }
 
-    public int getGiaSP() {
+    public long getGiaSP() {
         return giaSP;
     }
 
-    public void setGiaSP(int giaSP) {
+    public void setGiaSP(long giaSP) {
         this.giaSP = giaSP;
     }
 
@@ -37,11 +37,11 @@ public class GioHang {
         this.hinhAnh = hinhAnh;
     }
 
-    public int getSoLuongMua() {
+    public long getSoLuongMua() {
         return soLuongMua;
     }
 
-    public void setSoLuongMua(int soLuongMua) {
+    public void setSoLuongMua(long soLuongMua) {
         this.soLuongMua = soLuongMua;
     }
 

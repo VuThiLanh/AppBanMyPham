@@ -111,7 +111,7 @@ public class FragmentGioHang extends Fragment implements GioHangAdapter.ItemClic
 
         GioHangAdapter adapter = new GioHangAdapter(Detail.listgiohang,this,getActivity());
         recycleviewTatCa.setAdapter(adapter);
-        int d=0;
+        long d=0;
         for(int i=0;i<Detail.listgiohang.size();i++){
             d=d+Detail.listgiohang.get(i).getSoLuongMua()*Detail.listgiohang.get(i).getGiaSP();
         }
@@ -170,7 +170,7 @@ public class FragmentGioHang extends Fragment implements GioHangAdapter.ItemClic
                 GioHangAdapter adapter = new GioHangAdapter(Detail.listgiohang,FragmentGioHang.this,getActivity());
                 recycleviewTatCa.setAdapter(adapter);
 
-                int d=0;
+                long d=0;
                 for(int i=0;i<Detail.listgiohang.size();i++){
                     d=d+Detail.listgiohang.get(i).getSoLuongMua()*Detail.listgiohang.get(i).getGiaSP();
                 }
