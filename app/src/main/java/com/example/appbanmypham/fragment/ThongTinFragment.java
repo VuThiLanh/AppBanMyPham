@@ -3,23 +3,19 @@ package com.example.appbanmypham.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.appbanmypham.Adapter.DonHangDaMuaAdapter;
-import com.example.appbanmypham.Adapter.GioHangAdapter;
 import com.example.appbanmypham.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link DonHangDaDatFragment#newInstance} factory method to
+ * Use the {@link ThongTinFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DonHangDaDatFragment extends Fragment {
+public class ThongTinFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,7 +27,7 @@ public class DonHangDaDatFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public DonHangDaDatFragment() {
+    public ThongTinFragment() {
         // Required empty public constructor
     }
 
@@ -44,8 +40,8 @@ public class DonHangDaDatFragment extends Fragment {
      * @return A new instance of fragment DonHangDaDatFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DonHangDaDatFragment newInstance(String param1, String param2) {
-        DonHangDaDatFragment fragment = new DonHangDaDatFragment();
+    public static ThongTinFragment newInstance(String param1, String param2) {
+        ThongTinFragment fragment = new ThongTinFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

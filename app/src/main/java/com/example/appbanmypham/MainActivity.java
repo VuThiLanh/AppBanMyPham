@@ -26,7 +26,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.appbanmypham.Activity.DangNhap;
-import com.example.appbanmypham.fragment.DonHangDaDatFragment;
+import com.example.appbanmypham.fragment.ThongTinFragment;
 import com.example.appbanmypham.fragment.FragmentChangePass;
 import com.example.appbanmypham.fragment.FragmentGioHang;
 import com.example.appbanmypham.fragment.FragmentTatCaSp;
@@ -142,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         else if(id==R.id.navthongtin){
             if(mCurrentFragmet!=Fragment_donhang){
-                replaceFragment(new DonHangDaDatFragment());
+                replaceFragment(new ThongTinFragment());
                 mCurrentFragmet = Fragment_donhang;
             }
         }
