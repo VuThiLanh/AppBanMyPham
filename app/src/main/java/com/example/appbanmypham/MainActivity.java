@@ -140,6 +140,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mCurrentFragmet = Fragment_giohang;
             }
         }
+        else if(id==R.id.navthongtin){
+            if(mCurrentFragmet!=Fragment_donhang){
+                replaceFragment(new DonHangDaDatFragment());
+                mCurrentFragmet = Fragment_donhang;
+            }
+        }
 
         mdrawerLayout.closeDrawer(GravityCompat.START);
         return true;

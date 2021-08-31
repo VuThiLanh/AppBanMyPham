@@ -13,6 +13,9 @@
     <item android:id="@+id/navgiohang"
         android:title="Giỏ hàng"
         android:icon="@drawable/icongiohang"/>
+    <item android:id="@+id/navthongtin"
+        android:title="Thông tin"
+        android:icon="@drawable/ic_baseline_info_24"/>
 </group>
     <item android:title="Quản lý tài khoản">
         <menu>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/hongnhat"
     tools:context=".fragment.DonHangDaDatFragment">
 
     <LinearLayout
@@ -12,7 +13,7 @@
         <TextView
             android:layout_marginBottom="4dp"
             android:background="@color/hongnen"
-            android:text="Danh sách đơn hàng đã đặt "
+            android:text="Thông tin"
             android:textStyle="bold"
             android:layout_gravity="center"
             android:gravity="center"
@@ -20,12 +21,59 @@
             android:textColor="@color/hongdam"
             android:layout_height="40dp"
             android:layout_width="match_parent" />
-        <androidx.recyclerview.widget.RecyclerView
+        <LinearLayout
             android:id="@+id/rcDonHangDaDat"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/logochinh"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="T'Lanh Cosmetic Shop"
+                android:layout_gravity="center"
+                android:textSize="23dp"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Thông tin liên hệ:"/>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:text="- Địa chỉ: 358 Bùi Xương Trạch, Quận Thanh Xuân, Hà Nội\n- Hotline: 098 857 67 34"
+                android:textColor="@color/black"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:lineSpacingExtra="10dp"
+                android:textColor="@color/black"
+                android:text="T'Lanh Cosmetic là chuỗi hệ thống bán lẻ, chuyên về các sản phẩm chăm sóc sức khỏe và làm đẹp. Đến với T'Lanh Cosmetic các bạn sẽ được sở mục thị hàng loạt các dòng mỹ phẩm khác nhau đến từ rất nhiều thương hiệu nổi tiếng trong ngoài nước – con số phải nói là không nhỏ, thỏa mãn đam mê mua sắm của đại đa số chị em.
+Hiện T'Lanh Cosmetic có cơ sở chính tại Hà Nội, có website bán hàng online với hàng triệu lượt khách hàng truy cập mỗi ngày. Các mặt hàng mỹ phẩm tại đây gồm: Son dưỡng, son môi, tẩy tế bào chết môi, mặt nạ ngủ cho môi, kem dưỡng trắng da, mặt nạ, sữa rửa mặt, mascara, phấn phủ, kem nền, phấn mắt, má hồng, dưỡng tóc, tẩy trang, nước hoa hồng… đến từ các thương hiệu như: L’Oreal, Wet N Wild, MegaLast Liquid Catsuit Matte, Maybelline, Lemonade, BlackRouge, SilkyGirl, Dr.Jart+,…"
+                android:textSize="16sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="16dp"
+                android:textColor="@color/black"
+                android:layout_marginLeft="300dp"
+                android:text="T'Lanh Cosmetic love all !!!!!"/>
+        </LinearLayout>
     </LinearLayout>
 
-</FrameLayout>
+</ScrollView>

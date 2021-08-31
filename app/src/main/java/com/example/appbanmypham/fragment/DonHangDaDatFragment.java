@@ -68,15 +68,6 @@ public class DonHangDaDatFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_don_hang_da_dat, container, false);
 
-       RecyclerView rcdonhang;
-       rcdonhang=view.findViewById(R.id.rcDonHangDaDat);
-
-       LinearLayoutManager layoutManager=new LinearLayoutManager(getActivity());
-       rcdonhang.setLayoutManager(layoutManager);
-
-       DonHangDaMuaAdapter adapter = new DonHangDaMuaAdapter(ThanhToanFragment.mangThanhToan,getActivity());
-       rcdonhang.setAdapter(adapter);
-
        return  view;
     }
 }
